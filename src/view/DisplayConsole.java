@@ -1,6 +1,5 @@
 package view;
 
-import Utils.Judge;
 import controller.DisplayController;
 import model.Info;
 
@@ -10,7 +9,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 public class DisplayConsole extends JFrame{
-	
+
 	DisplayController displayController;
 	Info info;
 
@@ -18,7 +17,7 @@ public class DisplayConsole extends JFrame{
 	Container c = getContentPane();
 	Font my_font = new Font("Calibri", 1, 20);
 
-	Color green = new Color(0,205,0);
+	Color green=new Color(0,205,0);
 
 	JLabel l_outsidetem = new JLabel("Outside Temp");
 	JLabel l_temp = new JLabel("Inside Temp");
@@ -178,6 +177,14 @@ public class DisplayConsole extends JFrame{
 	static JScrollPane sp_console = new JScrollPane(ta_console);
 
 	public void display() {
+
+
+		ImageIcon redImageIcon = new ImageIcon("./a2.png");
+		Image redImage = redImageIcon.getImage();
+		Image redSmallImage = redImage.getScaledInstance(30, 30,
+				Image.SCALE_FAST);
+		redImageIcon = new ImageIcon(redSmallImage);
+
 
 		setLayout(null);
 
@@ -764,9 +771,7 @@ public class DisplayConsole extends JFrame{
 		l_outsidetem5.setText(info.outTemp);
 		l_outsidetem6.setText(info.outTemp);
 
-		String current = info.inTemp[0];
 		l_temp1.setText(info.inTemp[0]);
-		l_temp1.setForeground(Judge.temp(current, 0));
 		l_temp2.setText(info.inTemp[1]);
 		l_temp3.setText(info.inTemp[2]);
 		l_temp4.setText(info.inTemp[3]);
@@ -800,6 +805,45 @@ public class DisplayConsole extends JFrame{
 		l_pressure4.setText(info.pressure[3]);
 		l_pressure5.setText(info.pressure[4]);
 		l_pressure6.setText(info.pressure[5]);
+
+		if(info.smoke[0]){
+			l_smoke1.setIcon(redImageIcon);
+		}
+		if(info.smoke[1]){
+			l_smoke2.setIcon(redImageIcon);
+		}
+		if(info.smoke[2]){
+			l_smoke3.setIcon(redImageIcon);
+		}
+		if(info.smoke[3]){
+			l_smoke4.setIcon(redImageIcon);
+		}
+		if(info.smoke[4]){
+			l_smoke5.setIcon(redImageIcon);
+		}
+		if(info.smoke[5]){
+			l_smoke6.setIcon(redImageIcon);
+		}
+
+		if (info.gas[0]){
+			l_gas1.setIcon(redImageIcon);
+		}
+		if (info.gas[1]){
+			l_gas2.setIcon(redImageIcon);
+		}
+		if (info.gas[2]){
+			l_gas3.setIcon(redImageIcon);
+		}
+		if (info.gas[3]){
+			l_gas4.setIcon(redImageIcon);
+		}
+		if (info.gas[4]){
+			l_gas5.setIcon(redImageIcon);
+		}
+		if (info.gas[5]){
+			l_gas6.setIcon(redImageIcon);
+		}
+
 
 
 
@@ -844,9 +888,9 @@ public class DisplayConsole extends JFrame{
 		// TODO Auto-generated constructor stub
 		this.displayController = displayController;
 		this.info = displayController.getInfo();
-		
+
 	}
-	
+
 	//call this function when "mode" button is clicked. Use changeMode("normal") to enter normal mode, and changeMode("test") to enter test mode
 	public void changeMode(String mode){
 		if(mode.equals("normal")){
@@ -854,22 +898,22 @@ public class DisplayConsole extends JFrame{
 		}
 		else if(mode.equals("test")){
 			displayController.activeTestMode();
-		}	
+		}
 	}
-	
+
 	//call this function when reset alarm button is clicked
 	public void resetAllAlarm(){
 		displayController.resetAlarm();
 	}
-	
+
 	public void activeRobot(){
 		displayController.activeRobot();
 	}
-	
+
 	//UI code will be placed here. Data is stored in Info object.
 	//public void display(){
-		
+
 	//}
-	
-	
+
+
 }
