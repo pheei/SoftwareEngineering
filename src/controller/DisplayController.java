@@ -1,10 +1,13 @@
 package controller;
 
+import java.awt.*;
 import java.util.Arrays;
 
 import model.Info;
 import view.DisplayConsole;
 import view.TestConsole;
+
+import javax.swing.*;
 
 public class DisplayController {
 	
@@ -43,7 +46,13 @@ public class DisplayController {
 	public void resetAlarm() {
 		// TODO Auto-generated method stub
 		Arrays.fill(info.alarm, false);
-		displayConsole.display();
+		//displayConsole.display();
+		ImageIcon image = displayConsole.greenImageIcon;
+		displayConsole.l_presurea.setIcon(image);
+		displayConsole.l_humiditya.setIcon(image);
+		displayConsole.l_oxygena.setIcon(image);
+		displayConsole.l_tempa.setIcon(image);
+		displayConsole.l_walltempa.setIcon(image);
 	}
 
 

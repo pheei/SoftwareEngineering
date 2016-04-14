@@ -7,6 +7,9 @@ import java.util.Hashtable;
  */
 public class Utils {
 
+    private Utils(){
+
+    }
     public static int mapper(String str){
         Hashtable<String, Integer> table = new Hashtable<>();
         table.put("LIV", 0);

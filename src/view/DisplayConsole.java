@@ -1,5 +1,6 @@
 package view;
 
+import Utils.Judge;
 import controller.DisplayController;
 import model.Info;
 
@@ -13,11 +14,12 @@ public class DisplayConsole extends JFrame{
 	DisplayController displayController;
 	Info info;
 
-
+	public ImageIcon redImageIcon;
 	Container c = getContentPane();
 	Font my_font = new Font("Calibri", 1, 20);
 
-	Color green=new Color(0,205,0);
+	public ImageIcon greenImageIcon;
+	Color green= Color.green;
 
 	JLabel l_outsidetem = new JLabel("Outside Temp");
 	JLabel l_temp = new JLabel("Inside Temp");
@@ -80,11 +82,11 @@ public class DisplayConsole extends JFrame{
 	JLabel l_pressure5 = new JLabel("14.5psi");
 	JLabel l_pressure6 = new JLabel("14.5psi");
 
-	JLabel l_tempa = new JLabel();
-	JLabel l_walltempa = new JLabel();
-	JLabel l_humiditya = new JLabel();
-	JLabel l_oxygena = new JLabel();
-	JLabel l_presurea = new JLabel();
+	public JLabel l_tempa = new JLabel();
+	public JLabel l_walltempa = new JLabel();
+	public JLabel l_humiditya = new JLabel();
+	public JLabel l_oxygena = new JLabel();
+	public JLabel l_presurea = new JLabel();
 
 	JLabel l_smoke1 = new JLabel();
 	JLabel l_smoke2 = new JLabel();
@@ -179,11 +181,17 @@ public class DisplayConsole extends JFrame{
 	public void display() {
 
 
-		ImageIcon redImageIcon = new ImageIcon("./a2.png");
+		redImageIcon = new ImageIcon("./a2.png");
 		Image redImage = redImageIcon.getImage();
 		Image redSmallImage = redImage.getScaledInstance(30, 30,
 				Image.SCALE_FAST);
 		redImageIcon = new ImageIcon(redSmallImage);
+
+		greenImageIcon = new ImageIcon("./a1.png");
+		Image greenImage = greenImageIcon.getImage();
+		Image greenSmallImage = greenImage.getScaledInstance(30, 30,
+				Image.SCALE_FAST);
+		greenImageIcon = new ImageIcon(greenSmallImage);
 
 
 		setLayout(null);
@@ -845,9 +853,123 @@ public class DisplayConsole extends JFrame{
 		}
 
 
+		l_temp1.setText(info.inTemp[0]);
+		l_temp1.setForeground(Judge.temp(info.inTemp[0], 0));
+
+		l_temp2.setText(info.inTemp[1]);
+		l_temp2.setForeground(Judge.temp(info.inTemp[1], 1));
+
+		l_temp3.setText(info.inTemp[2]);
+		l_temp3.setForeground(Judge.temp(info.inTemp[2], 2));
+
+		l_temp4.setText(info.inTemp[3]);
+		l_temp4.setForeground(Judge.temp(info.inTemp[3], 3));
+
+		l_temp5.setText(info.inTemp[4]);
+		l_temp5.setForeground(Judge.temp(info.inTemp[4], 4));
+
+		l_temp6.setText(info.inTemp[5]);
+		l_temp6.setForeground(Judge.temp(info.inTemp[5], 5));
+
+		if(l_temp1.getForeground()==Color.BLACK || l_temp2.getForeground()==Color.BLACK ||l_temp2.getForeground()==Color.BLACK ||l_temp3.getForeground()==Color.BLACK ||l_temp4.getForeground()==Color.BLACK ||l_temp5.getForeground()==Color.BLACK || l_temp6.getForeground()==Color.BLACK){
+			l_tempa.setIcon(redImageIcon);
+		}
+
+		l_walltemp1.setText(info.wallTemp[0]);
+		l_walltemp1.setForeground(Judge.external(info.wallTemp[0]));
+
+		l_walltemp2.setText(info.wallTemp[1]);
+		l_walltemp2.setForeground(Judge.external(info.wallTemp[1]));
+
+		l_walltemp3.setText(info.wallTemp[2]);
+		l_walltemp3.setForeground(Judge.external(info.wallTemp[2]));
+
+		l_walltemp4.setText(info.wallTemp[3]);
+		l_walltemp4.setForeground(Judge.external(info.wallTemp[3]));
+
+		l_walltemp5.setText(info.wallTemp[4]);
+		l_walltemp5.setForeground(Judge.external(info.wallTemp[4]));
+
+		l_walltemp6.setText(info.wallTemp[5]);
+		l_walltemp6.setForeground(Judge.external(info.wallTemp[5]));
+
+		if(l_walltemp1.getForeground()==Color.BLACK || l_walltemp2.getForeground()==Color.BLACK ||l_walltemp3.getForeground()==Color.BLACK ||l_walltemp4.getForeground()==Color.BLACK ||l_walltemp5.getForeground()==Color.BLACK ||l_walltemp6.getForeground()==Color.BLACK){
+			l_walltempa.setIcon(redImageIcon);
+		}
 
 
+		l_humidity1.setText(info.humid[0]);
+		l_humidity1.setForeground(Judge.humid(info.humid[0], 0));
 
+		l_humidity2.setText(info.humid[1]);
+		l_humidity2.setForeground(Judge.humid(info.humid[1], 1));
+
+		l_humidity3.setText(info.humid[2]);
+		l_humidity3.setForeground(Judge.humid(info.humid[2], 2));
+
+		l_humidity4.setText(info.humid[3]);
+		l_humidity4.setForeground(Judge.humid(info.humid[3], 3));
+
+		l_humidity5.setText(info.humid[4]);
+		l_humidity5.setForeground(Judge.humid(info.humid[4], 4));
+
+		l_humidity6.setText(info.humid[5]);
+		l_humidity6.setForeground(Judge.humid(info.humid[5], 5));
+
+		if(l_humidity1.getForeground() == Color.BLACK ||l_humidity2.getForeground() == Color.BLACK ||l_humidity3.getForeground() == Color.BLACK ||l_humidity4.getForeground() == Color.BLACK ||l_humidity5.getForeground() == Color.BLACK ||l_humidity6.getForeground() == Color.BLACK ){
+			l_humiditya.setIcon(redImageIcon);
+		}
+
+		l_oxygen1.setText(info.oxygen[0]);
+		l_oxygen1.setForeground(Judge.oxy(info.oxygen[0]));
+
+		l_oxygen2.setText(info.oxygen[1]);
+		l_oxygen2.setForeground(Judge.oxy(info.oxygen[1]));
+
+		l_oxygen3.setText(info.oxygen[2]);
+		l_oxygen3.setForeground(Judge.oxy(info.oxygen[2]));
+
+		l_oxygen4.setText(info.oxygen[3]);
+		l_oxygen4.setForeground(Judge.oxy(info.oxygen[3]));
+
+		l_oxygen5.setText(info.oxygen[4]);
+		l_oxygen5.setForeground(Judge.oxy(info.oxygen[4]));
+
+		l_oxygen6.setText(info.oxygen[5]);
+		l_oxygen6.setForeground(Judge.oxy(info.oxygen[5]));
+
+		if(l_oxygen1.getForeground() == Color.BLACK ||l_oxygen2.getForeground() == Color.BLACK ||l_oxygen3.getForeground() == Color.BLACK ||l_oxygen4.getForeground() == Color.BLACK ||l_oxygen5.getForeground() == Color.BLACK ||l_oxygen6.getForeground() == Color.BLACK){
+			l_oxygena.setIcon(redImageIcon);
+		}
+
+		l_pressure1.setText(info.pressure[0]);
+		l_pressure1.setForeground(Judge.pres(info.pressure[0]));
+
+		l_pressure2.setText(info.pressure[1]);
+		l_pressure2.setForeground(Judge.pres(info.pressure[1]));
+
+		l_pressure3.setText(info.pressure[2]);
+		l_pressure3.setForeground(Judge.pres(info.pressure[2]));
+
+		l_pressure4.setText(info.pressure[3]);
+		l_pressure4.setForeground(Judge.pres(info.pressure[3]));
+
+		l_pressure5.setText(info.pressure[4]);
+		l_pressure5.setForeground(Judge.pres(info.pressure[4]));
+
+		l_pressure6.setText(info.pressure[5]);
+		l_pressure6.setForeground(Judge.pres(info.pressure[5]));
+
+		if (l_pressure1.getForeground()==Color.BLACK ||l_pressure2.getForeground()==Color.BLACK ||l_pressure3.getForeground()==Color.BLACK ||l_pressure4.getForeground()==Color.BLACK ||l_pressure5.getForeground()==Color.BLACK ||l_pressure6.getForeground()==Color.BLACK ){
+			l_presurea.setIcon(redImageIcon);
+		}
+
+		b_reset.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				displayController.resetAlarm();
+			}
+		});
 
 //		c.add(b_convert);
 //		b_convert.setFont(new Font("Calibri", 0, 20));

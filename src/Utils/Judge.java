@@ -3,7 +3,9 @@ package Utils;
 import java.awt.*;
 
 public class Judge {
+    private Judge(){
 
+    }
     //return 0 means normal. return 1 means yellow, 2  means red, 3 means
     public static Color temp(String value, int index){
         if (value.equals("null")){
@@ -81,7 +83,7 @@ public class Judge {
     }
 
     //0 means normal, 1 means yellow, 2 means read, 3 means alarm
-    public Color oxy(String value){
+    public static Color oxy(String value){
         if (value.equals("null")){
             return Color.green;
         }
@@ -103,7 +105,7 @@ public class Judge {
         if (value.equals("null")){
             return Color.green;
         }
-        value = value.substring(0, value.length() - 1);
+        value = value.substring(0, value.length() - 3);
         double pres = Double.valueOf(value);
         if (pres < 0.93 * 14.5 || pres > 1.07 * 14.5){
             return Color.black;
