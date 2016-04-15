@@ -14,6 +14,15 @@ public class DisplayConsole extends JFrame{
 	DisplayController displayController;
 	Info info;
 
+	int cam1w=300;
+	int cam1h=250;
+	int cam2w=300;
+	int cam2h=250;
+	int cam3w=300;
+	int cam3h=250;
+	int cam4w=300;
+	int cam4h=250;
+
 	public ImageIcon redImageIcon;
 	Container c = getContentPane();
 	Font my_font = new Font("Calibri", 1, 20);
@@ -551,11 +560,10 @@ public class DisplayConsole extends JFrame{
 		l_hc.setBounds(750, 10, 80, 30);
 		l_hc.setFont(my_font);
 
-
 		c.add(l_disPicture1);
 		imageIcon = new ImageIcon("./1.jpg");
 		image = imageIcon.getImage();
-		smallImage = image.getScaledInstance(300, 250,
+		smallImage = image.getScaledInstance(cam1w, cam1h,
 				Image.SCALE_FAST);
 		smallIcon = new ImageIcon(smallImage);
 		l_disPicture1.setIcon(smallIcon);
@@ -580,10 +588,38 @@ public class DisplayConsole extends JFrame{
 		c.add(b_cam15);
 		b_cam15.setIcon(new ImageIcon("./plus.png"));
 		b_cam15.setBounds(1240,180,30,30);
+		b_cam15.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				cam1w=cam1w+30;
+				cam1h=cam1h+30;
+				imageIcon = new ImageIcon("./1.jpg");
+				image = imageIcon.getImage();
+				smallImage = image.getScaledInstance(cam1w, cam1h,
+						Image.SCALE_FAST);
+				smallIcon = new ImageIcon(smallImage);
+				l_disPicture1.setIcon(smallIcon);
+				l_disPicture1.setBounds(900, 30, 300, 250);
+			}
+		});
 
 		c.add(b_cam16);
 		b_cam16.setIcon(new ImageIcon("./minus.png"));
 		b_cam16.setBounds(1240,230,30,30);
+		b_cam16.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				cam1w=cam1w-30;
+				cam1h=cam1h-30;
+				imageIcon = new ImageIcon("./1.jpg");
+				image = imageIcon.getImage();
+				smallImage = image.getScaledInstance(cam1w, cam1h,
+						Image.SCALE_FAST);
+				smallIcon = new ImageIcon(smallImage);
+				l_disPicture1.setIcon(smallIcon);
+				l_disPicture1.setBounds(900, 30, 300, 250);
+			}
+		});
 
 		c.add(l_camera1);
 		l_camera1.setBounds(930, 293, 80, 30);
@@ -632,10 +668,38 @@ public class DisplayConsole extends JFrame{
 		c.add(b_cam25);
 		b_cam25.setIcon(new ImageIcon("./plus.png"));
 		b_cam25.setBounds(1660,180,30,30);
+		b_cam25.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				cam2w=cam2w+30;
+				cam2h=cam2h+30;
+				imageIcon = new ImageIcon("./2.jpg");
+				image = imageIcon.getImage();
+				smallImage = image.getScaledInstance(cam2w, cam2h,
+						Image.SCALE_FAST);
+				smallIcon = new ImageIcon(smallImage);
+				l_disPicture2.setIcon(smallIcon);
+				l_disPicture2.setBounds(1320, 30, 300, 250);
+			}
+		});
 
 		c.add(b_cam26);
 		b_cam26.setIcon(new ImageIcon("./minus.png"));
 		b_cam26.setBounds(1660,230,30,30);
+		b_cam26.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				cam2w=cam2w-30;
+				cam2h=cam2h-30;
+				imageIcon = new ImageIcon("./2.jpg");
+				image = imageIcon.getImage();
+				smallImage = image.getScaledInstance(cam2w, cam2h,
+						Image.SCALE_FAST);
+				smallIcon = new ImageIcon(smallImage);
+				l_disPicture2.setIcon(smallIcon);
+				l_disPicture2.setBounds(1320, 30, 300, 250);
+			}
+		});
 
 		c.add(l_camera2);
 		l_camera2.setBounds(1350, 293, 80, 30);
@@ -684,10 +748,38 @@ public class DisplayConsole extends JFrame{
 		c.add(b_cam35);
 		b_cam35.setIcon(new ImageIcon("./plus.png"));
 		b_cam35.setBounds(1240,500,30,30);
+		b_cam35.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				cam3w=cam3w+30;
+				cam3h=cam3h+30;
+				imageIcon = new ImageIcon("./3.jpg");
+				image = imageIcon.getImage();
+				smallImage = image.getScaledInstance(cam3w, cam3h,
+						Image.SCALE_FAST);
+				smallIcon = new ImageIcon(smallImage);
+				l_disPicture3.setIcon(smallIcon);
+				l_disPicture3.setBounds(900, 350, 300, 250);
+			}
+		});
 
 		c.add(b_cam36);
 		b_cam36.setIcon(new ImageIcon("./minus.png"));
 		b_cam36.setBounds(1240,550,30,30);
+		b_cam36.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				cam3w=cam3w-30;
+				cam3h=cam3h-30;
+				imageIcon = new ImageIcon("./3.jpg");
+				image = imageIcon.getImage();
+				smallImage = image.getScaledInstance(cam3w, cam3h,
+						Image.SCALE_FAST);
+				smallIcon = new ImageIcon(smallImage);
+				l_disPicture3.setIcon(smallIcon);
+				l_disPicture3.setBounds(900, 350, 300, 250);
+			}
+		});
 
 		c.add(l_camera3);
 		l_camera3.setBounds(930, 613, 80, 30);
@@ -736,10 +828,38 @@ public class DisplayConsole extends JFrame{
 		c.add(b_cam45);
 		b_cam45.setIcon(new ImageIcon("./plus.png"));
 		b_cam45.setBounds(1660,500,30,30);
+		b_cam45.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				cam4w=cam4w+30;
+				cam4h=cam4h+30;
+				imageIcon = new ImageIcon("./4.jpg");
+				image = imageIcon.getImage();
+				smallImage = image.getScaledInstance(cam4w, cam4h,
+						Image.SCALE_FAST);
+				smallIcon = new ImageIcon(smallImage);
+				l_disPicture4.setIcon(smallIcon);
+				l_disPicture4.setBounds(1320, 350, 300, 250);
+			}
+		});
 
 		c.add(b_cam46);
 		b_cam46.setIcon(new ImageIcon("./minus.png"));
 		b_cam46.setBounds(1660,550,30,30);
+		b_cam46.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				cam4w=cam4w-30;
+				cam4h=cam4h-30;
+				imageIcon = new ImageIcon("./4.jpg");
+				image = imageIcon.getImage();
+				smallImage = image.getScaledInstance(cam4w, cam4h,
+						Image.SCALE_FAST);
+				smallIcon = new ImageIcon(smallImage);
+				l_disPicture4.setIcon(smallIcon);
+				l_disPicture4.setBounds(1320, 350, 300, 250);
+			}
+		});
 
 		c.add(l_camera4);
 		l_camera4.setBounds(1350, 613, 80, 30);
@@ -770,7 +890,6 @@ public class DisplayConsole extends JFrame{
 		c.add(b_add);
 		b_add.setFont(new Font("Calibri", 0, 20));
 		b_add.setBounds(1550, 679, 150, 30);
-
 
 		l_outsidetem1.setText(info.outTemp);
 		l_outsidetem2.setText(info.outTemp);
